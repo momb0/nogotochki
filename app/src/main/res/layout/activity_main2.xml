@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+    <Button
+        android:id="@+id/profileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="Профиль"
+        app:layout_constraintEnd_toStartOf="@+id/masterButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/masterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Я - мастер"
+        app:layout_constraintEnd_toStartOf="@+id/modelButton"
+        app:layout_constraintStart_toEndOf="@+id/profileButton"
+        app:layout_constraintTop_toTopOf="@+id/profileButton" />
+
+    <Button
+        android:id="@+id/modelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Я - модель"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/masterButton"
+        app:layout_constraintTop_toTopOf="@+id/masterButton" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profileLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/masterButton"
+        tools:visibility="invisible">
+
+        <TextView
+            android:id="@+id/profileNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="Username"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/profilePhoneTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="phone"
+            app:layout_constraintBottom_toTopOf="@+id/profileInfoTextView"
+            app:layout_constraintStart_toStartOf="@+id/profileNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/profileNameTextView" />
+
+        <TextView
+            android:id="@+id/profileInfoTextView"
+            android:layout_width="224dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="5dp"
+            android:text="some info"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintStart_toStartOf="@+id/profileNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/profilePhoneTextView" />
+
+        <Button
+            android:id="@+id/addServiceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginStart="15dp"
+            android:text="Добавить услугу"
+            app:layout_constraintBottom_toBottomOf="@+id/profileInfoTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profileInfoTextView"
+            app:layout_constraintTop_toTopOf="@+id/profileInfoTextView" />
+
+        <Button
+            android:id="@+id/goToSettingsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:text="Изменить профиль"
+            app:layout_constraintEnd_toEndOf="@+id/addServiceButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addServiceButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/searchInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Поиск пользователей или услуг"
+        android:textSize="16dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/profileButton"
+        app:layout_constraintTop_toBottomOf="@+id/masterButton"
+        tools:visibility="visible" />
+
+    <Spinner
+        android:id="@+id/serviceTypeSpinner"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/searchButton"
+        app:layout_constraintStart_toStartOf="@+id/searchInfoTextView"
+        app:layout_constraintTop_toTopOf="@+id/searchButton" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Искать"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/modelButton"
+        app:layout_constraintTop_toBottomOf="@+id/searchInfoTextView"
+        tools:visibility="visible" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/serviceTypeSpinner"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
